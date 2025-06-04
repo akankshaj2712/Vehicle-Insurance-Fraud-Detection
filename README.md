@@ -1,78 +1,69 @@
-# Vehicle-Insurance-Fraud-Detection
+# 🕵️ Fraud Detection Analysis Report
+🔍 **Objective**
 
-🔍 Final Observations & Insights — Vehicle Insurance Fraud Detection
+This project focuses on detecting fraudulent vehicle insurance claims using machine learning. Insurance fraud leads to billions in losses annually—early detection helps mitigate these risks.
 
- Team Members: Akanksha Jondhale, Viswanath Iruku, Inchara Jayaram Anuradha
- 
- Dataset: fraud_oracle.csv
- 
- Approach: Supervised Classification using Logistic Regression, Random Forest, Neural Networks with Autoencoders
+**Goals:**
+
+Identify key factors influencing fraud.
+
+Develop predictive models to classify claims as fraudulent or genuine.
+
+📊 **Dataset Overview**
+
+The dataset includes:
+
+Demographics (e.g., Age, Sex, MaritalStatus)
+
+Vehicle & Policy Info (VehicleCategory, VehiclePrice, PolicyAnnualPremium)
+
+Claim Characteristics (ClaimAmount, AccidentArea, DayOfWeek, Month)
+
+Target Variable: FraudFound_P (1 = Fraudulent, 0 = Genuine)
+
+🧪 **Methodology**
+
+**Exploratory Data Analysis (EDA):**
+
+Visualizations and statistical summaries to understand feature distributions and class imbalance.
+
+**Data Preprocessing:**
+
+Handled missing values and categorical encoding
+
+Applied feature scaling using StandardScaler
+
+Used SMOTE to balance class distribution
+
+**Model Comparison:**
+
+Logistic Regression
+
+Random Forest
+
+XGBoost
+
+Neural Network (Autoencoder)
+
+Voting Classifier (XGBoost + Logistic Regression)
+
+✅ **Results**
+
+| Model                   | Recall (Fraud) | Accuracy | F1-Score |
+| ----------------------- | -------------- | -------- | -------- |
+| Logistic Regression     | 81%            | 54%      | 18%      |
+| Random Forest           | 89%            | 57%      | 19%      |
+| XGBoost                 | 90%            | 59%      | 20%      |
+| **Neural Network (AE)** | **95%**        | 55%      | **20%**  |
+| Voting Classifier       | 92%            | 56%      | 19%      |
 
 
-📌 Problem Overview:
+Neural Network with Autoencoder was selected as the final model due to 95% recall, crucial for minimizing false negatives in fraud detection.
 
-Vehicle insurance fraud, including staged accidents and exaggerated injury claims, is a growing concern impacting insurance companies and policyholders alike. Our goal was to build predictive models that can distinguish between genuine and fraudulent claims using historical data and help insurers take proactive action.
+📈 **Key Takeaways**
 
-🔧 Preprocessing & Feature Engineering:
+Recall was prioritized as the main evaluation metric due to the high cost of false negatives.
 
-•	Handled over 30 categorical and numerical features with significant class imbalance in the target variable FraudFound_P.
+Feature engineering and SMOTE significantly improved minority class detection.
 
-•	Applied label encoding, one-hot encoding, and scaling to prepare features for modeling.
-
-•	Created new features like Claim Complexity to capture hidden patterns (e.g., RepNumber / PolicyNumber).
-
-•	Removed multicollinear features using correlation matrix analysis (threshold > 0.9).
-
-•	Balanced the dataset using random oversampling to improve fraud detection performance.
-
-
-🔍 Key Insights from EDA:
-
-•	Fraud is more frequent in urban areas, with older vehicles, and frequent address changes.
-
-•	Claims without police reports or witnesses are more likely to be fraudulent.
-
-•	Fraudulent claims often involve younger policyholders and lower vehicle value brackets.
-
-•	Heatmaps and clustering plots revealed temporal and regional fraud patterns useful for further operational strategies.
-
-
-📊 Modeling & Evaluation Results:
-We evaluated three key models with resampled data:
-
-✅ Random Forest
-
-•	Accuracy: 96%
-
-•	Precision (Fraud): 98
-
-•	Recall (Fraud): 95%
-
-•	F1 Score: 96%
-
-Observation: This model provided the best overall performance with strong balance between Type I and Type II errors.
-
-✅ Logistic Regression
-
-•	Accuracy: 96%
-
-•	Precision (Fraud): 98%
-
-•	Recall (Fraud): 94%
-
-Observation: Similar to Random Forest, but slightly higher false negative rate. Still a robust and interpretable model.
-
-⚠️ Neural Network (Autoencoder for Anomaly Detection)
-
-•	Accuracy: 90%
-
-•	Precision (Fraud): 7%
-
-•	Recall (Fraud): 6%
-
-Observation: Poor performance in detecting fraud due to subtle anomaly signatures and severe class imbalance. Better suited for unsupervised anomaly cases.
-
-✅ Conclusion:
-
-Our project demonstrates that tree-based ensemble methods like Random Forests are highly effective for fraud detection when paired with thoughtful preprocessing and feature engineering. Balancing the dataset was critical for performance, and interpretability of models like logistic regression can support actionable decisions in real-world settings.
-We recommend that insurers integrate such models into their claim pipeline to flag high-risk cases for further manual review, improving efficiency and reducing fraud-related losses.
+Ensemble and deep learning models provided the best balance between recall and interpretability.
