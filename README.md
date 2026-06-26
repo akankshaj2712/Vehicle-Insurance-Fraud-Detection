@@ -1,7 +1,7 @@
 # 🕵️ Fraud Detection Analysis Report
 🔍 **Objective**
 
-This project focuses on detecting fraudulent vehicle insurance claims using machine learning. Insurance fraud leads to billions in losses annually—early detection helps mitigate these risks.
+This project focuses on detecting fraudulent vehicle insurance claims using machine learning. Insurance fraud leads to billions in losses annually-early detection helps mitigate these risks.
 
 **Goals:**
 
